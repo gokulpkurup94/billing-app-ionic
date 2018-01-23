@@ -4,25 +4,28 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
+import { BillPage } from '../pages/bill/bill';
+
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
-
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen ) {
+    
+  console.log("home page constructor called");
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'Bill', component: BillPage },
+      { title: 'Settings', component: SettingsPage }
     ];
 
   }
@@ -36,9 +39,21 @@ export class MyApp {
     });
   }
 
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
-  }
+  pages: Array<{title: string, component: any}>;
+  
+
+  
+  
+    openPage(page) {
+      // Reset the content nav to have just this page
+      // we wouldn't want the back button to show in this scenario
+      // if(page.title=="Home"){
+      //   this.navCtrl.popToRoot();
+      // }
+      // else{
+      //   this.navCtrl.push(page.component);
+      // }
+      
+      this.nav.setRoot(page.component);
+    }
 }

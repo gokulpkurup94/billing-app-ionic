@@ -1,3 +1,31 @@
 page-home {
+    .fab{
+        width:128px;
+        height: 128px;
+       
+        margin-bottom: 50px;
+       
+    }
+    ion-fab{
+        left:-56px;
+        text-align: center;
+       
+    }
+    ion-fab[middle] {
+        margin-top: -178px;
+        top: 50%;
+    }
+    ion-fab[center] {
+        left: 50%;
+        margin-left: -56px;
+        
+    }
+    .fab ion-icon{
+        font-size: 6.4rem;
+    }
+    .FabText{
+        top:-44px;
+        position: relative;
+    }
 
 }
