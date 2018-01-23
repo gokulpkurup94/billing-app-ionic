@@ -40,24 +40,26 @@
         <ion-card-content>
             <ion-grid>
                 <ion-row>
-                    <ion-col col-4>
+                    <ion-col col-10>
                         <ion-item>
                             <ion-label floating>Sl. No</ion-label>
                             <ion-input disabled type="number" value={{item.serialNo}}></ion-input>
                           </ion-item>
                     </ion-col>
-                  <ion-col col-6>
+                    <ion-col col-2>
+                      <button ion-button icon-only class="DeleteButton" primary (click)="deleteAnItem(item.serialNo)"> 
+                          <ion-icon name="trash" class="Blacked"></ion-icon>
+                        </button>
+                  </ion-col>
+                  </ion-row>
+                  <ion-row>
+                  <ion-col>
                       <ion-item>
                           <ion-label floating>Item No</ion-label>
                           <ion-input type="number" [(ngModel)]="item.itemNo"></ion-input>
                         </ion-item>
                   </ion-col>
-                  <ion-col col-2>
-                      <button ion-button icon-only class="DeleteButton" primary (click)="deleteAnItem(item.serialNo)"> 
-                          <ion-icon name="trash" class="Blacked"></ion-icon>
-                        </button>
-                  </ion-col>
-                </ion-row>
+                  </ion-row>
                 <ion-row>
                   <ion-col col-12>
                       <ion-item>
@@ -67,19 +69,23 @@
                   </ion-col>
                 </ion-row>
                 <ion-row>
-                    <ion-col col-4>
+                    <ion-col>
                         <ion-item>
                             <ion-label floating>Quantity</ion-label>
                             <ion-input type="number" [(ngModel)]="item.quantity"></ion-input>
                           </ion-item>
                     </ion-col>
-                    <ion-col col-4>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
                         <ion-item>
                             <ion-label floating>Rate</ion-label>
                             <ion-input type="number" [(ngModel)]="item.rate"></ion-input>
                           </ion-item>
                     </ion-col>
-                    <ion-col col-4>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
                         <ion-item>
                             <ion-label floating>Discount</ion-label>
                             <ion-input type="number" [(ngModel)]="item.discount"></ion-input>
@@ -101,12 +107,17 @@
               </ion-grid>
         </ion-card-content>
       </ion-card>
+      
+        
+     
+       
+      
  <ion-card>
       <!-- <ion-card-content> -->
           <ion-grid>
             <ion-row>
               <ion-col col-6 >Total : {{netTotal}}</ion-col>
-              <ion-col col-6>GST : {{gstValue}}</ion-col>
+              <ion-col col-6>GST ({{gst}}%) : {{gstValue}}</ion-col>
               
             </ion-row>
             
@@ -115,14 +126,14 @@
    
     </ion-card>
 
-
+    
       
 
 </ion-content>
 <ion-footer>
 
     
-
+  <button ion-button full color="primary" (click)="addAnItem()">Add an Item</button>
     <ion-toolbar>
     
        <ion-col col-12 style="text-align:center" >
@@ -137,8 +148,5 @@
        
       </ion-fab>
 
-    <ion-fab right bottom>
-        <button ion-fab color="primary" (click)="addAnItem()"><ion-icon name="add"></ion-icon></button>
-       
-      </ion-fab>
+    
   </ion-footer>
