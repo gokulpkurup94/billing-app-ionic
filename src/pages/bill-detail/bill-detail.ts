@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { ItemBill, CustomerBill } from '../../shared/item-bill.modal';
+import { ItemBill, CustomerBill, Product } from '../../shared/item-bill.modal';
 import { GstService } from '../../shared/gstService';
+import { ProductApiService } from '../../shared/productApi.service';
 /**
  * Generated class for the BillDetailPage page.
  *
@@ -25,16 +26,25 @@ export class BillDetailPage{
   gstValue:number;
   netTotal:number;
   discount:number;
-
+  i: number=0;
+  currentProducts: Product[];
   constructor(public navCtrl: NavController,
-               public navParams: NavParams, 
+               public navParams: NavParams,
                private alertCtrl: AlertController,
-              public gstService:GstService) {
+              public gstService:GstService,
+              public productApiService: ProductApiService) {
                         this.currentItems=[];
+
                         this.count=0;
                         this.gst=this.gstService.getGst();
                         this.grandTotal=0;
                         this.user=this.navParams.data;
+                        // this.productApiService.getProducts().subscribe(data => {
+
+                        //   this.currentProducts=data;
+                        // });
+                        // console.log(this.currentProducts);
+
   }
   changed(i:number){
     this.netTotal=0;
@@ -80,14 +90,14 @@ export class BillDetailPage{
     this.grandTotal=+(this.grandTotal.toFixed(2));
 
     this.currentItems.splice(index, 1);
-    
+
     this.count=this.count-1;
     for(let i=index;i<this.count;i++){
       this.currentItems[i].serialNo=this.currentItems[i].serialNo-1;
       console.log("changed"+i);
-      
+
     }
-    
+
   }
 
     reset() {
@@ -114,7 +124,7 @@ export class BillDetailPage{
       });
       alert.present();
     }
-   
-  
+
+
 
 }

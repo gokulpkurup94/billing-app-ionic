@@ -17,11 +17,11 @@ import { GstService } from '../../shared/gstService';
 export class SettingsPage {
   gst:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public gstService:GstService) {
-    console.log("custructor"); 
+    // console.log("custructor");
     this.gst=this.gstService.getGst();
   }
   changed( passedGst :number ){
-    
+
     this.gstService.setGst(passedGst);
   }
   ionViewDidLoad() {

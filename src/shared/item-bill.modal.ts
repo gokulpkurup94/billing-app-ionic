@@ -14,3 +14,9 @@ export class CustomerBill{
     customerAddress:string;
     mobileNo:number;
 }
+export class Product{
+    price:number;
+    productId:number;
+    productName:string;
+
+}

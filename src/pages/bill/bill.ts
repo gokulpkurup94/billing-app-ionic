@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BillDetailPage } from '../bill-detail/bill-detail';
 import { MyApp } from '../../app/app.component';
-import { CustomerBill } from '../../shared/item-bill.modal';
+import { CustomerBill, Product } from '../../shared/item-bill.modal';
 import { GstService } from '../../shared/gstService';
+import { ProductApiService } from '../../shared/productApi.service';
 
 /**
  * Generated class for the BillPage page.
@@ -19,15 +20,20 @@ import { GstService } from '../../shared/gstService';
 })
 export class BillPage {
   ac: MyApp;
+   private currentProducts: Product[];
    private gst:number;
   customerBill: CustomerBill;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public productApiService: ProductApiService) {
     this.customerBill= {billNo: 0, billDate: null, customeName: null, customerAddress:null , mobileNo:null };
     
   }
 
+
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad BillPage');
+    console.log("onPage");
+    this.productApiService.getProducts().subscribe(data => {
+      this.currentProducts = data;
+    });
     
   }
   billUser(){
