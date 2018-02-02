@@ -3,6 +3,8 @@ import { NavController } from 'ionic-angular';
 import { BillPage } from '../bill/bill';
 import { GstService } from '../../shared/gstService';
 import { SettingsPage } from '../settings/settings';
+import { ProductsPage } from '../products/products';
+import { FetchBillPage } from '../fetch-bill/fetch-bill';
 
 @Component({
   selector: 'page-home',
@@ -20,6 +22,8 @@ export class HomePage {
       this.pages = [
         { title: 'Home', component: HomePage },
         { title: 'Bill', component: BillPage },
+        { title: 'Fetch Bill', component: FetchBillPage },
+        { title: 'Products', component: ProductsPage },
         { title: 'Settings', component: SettingsPage }
       ];
   

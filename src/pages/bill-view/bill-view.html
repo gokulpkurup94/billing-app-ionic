@@ -1,0 +1,133 @@
+<!--
+  Generated template for the BillViewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-row>
+      <ion-col col-10><ion-title>bill-view</ion-title></ion-col>
+      <ion-col col-2><ion-icon name="home" (click)="goToHome()"></ion-icon></ion-col>
+    </ion-row>
+    
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-title>Bill Details</ion-title>
+    <ion-card>
+        <!-- <ion-card-header>    
+          Header
+        </ion-card-header> -->
+        <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-5 class="bold">Bill No:</ion-col>
+                <ion-col col-7> {{currentBill.user.billNo}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-5 class="bold">Bill Date:</ion-col>
+                <ion-col col-7> {{currentBill.user.billDate}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-5 class="bold">Name :</ion-col>
+                <ion-col col-7> {{currentBill.user.customerName}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-5 class="bold">Address:</ion-col>
+                <ion-col col-7> {{currentBill.user.customerAddress}}</ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-5 class="bold">Mobile :</ion-col>
+                <ion-col col-7> {{currentBill.user.mobileNo}}</ion-col>
+              </ion-row>
+                    
+
+            </ion-grid>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngFor="let item of currentBill.items">
+          <ion-grid>
+              <ion-row>
+                <ion-col col-1>{{item.serialNo}}</ion-col>
+                <ion-col col-6 class="bold">{{item.itemName}}</ion-col>
+                <ion-col col-5>
+                    <ion-chip>
+                      <ion-chip>
+                          Rate.
+                      </ion-chip>
+                      <ion-label>
+                          {{item.rate}}
+                      </ion-label>
+                    </ion-chip>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col col-4>
+                  <ion-chip>
+                    <ion-chip>
+                        Quantity
+                    </ion-chip>
+                    <ion-label>
+                        {{item.quantity}}
+                    </ion-label>
+                  </ion-chip>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-chip>
+                      <ion-chip>
+                          Discount
+                      </ion-chip>
+                      <ion-label>
+                          {{item.discount}}
+                      </ion-label>
+                    </ion-chip>
+                  </ion-col>
+                  <ion-col col-4>
+                    <ion-chip color="chip">
+                      <ion-chip>
+                          Rs.
+                      </ion-chip>
+                      <ion-label>
+                          {{item.total}}
+                      </ion-label>
+                    </ion-chip>
+                  </ion-col>
+              </ion-row>
+              <!-- <ion-row>
+                <ion-col col-6>
+                  <ion-chip>
+                    <ion-chip>
+                        Discount
+                    </ion-chip>
+                    <ion-label>
+                        {{item.discount}}
+                    </ion-label>
+                  </ion-chip>
+                </ion-col>
+              </ion-row> -->
+              <ion-row>
+                
+              </ion-row>
+          </ion-grid>
+      </ion-card>
+      <ion-card>
+          <ion-row>
+              <ion-col col-6 class="bold">Gst:</ion-col>
+              <ion-col col-6>{{currentBill.gst}}</ion-col>
+            </ion-row>
+        <ion-row>
+          <ion-col col-6 class="bold">Total:</ion-col>
+          <ion-col col-6>{{currentBill.total}}</ion-col>
+        </ion-row>
+      </ion-card>
+
+  <!-- <ul>
+    <li *ngFor="let item of currentBill.items">{{item.itemName}}</li>
+  </ul> -->
+
+</ion-content>

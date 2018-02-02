@@ -6,11 +6,12 @@ page-home {
         margin-bottom: 50px;
        
     }
-    ion-fab{
-        left:-56px;
+    .fabtextallign{
+        // left:-56px;
         text-align: center;
        
     }
+    
     ion-fab[middle] {
         margin-top: -178px;
         top: 50%;
@@ -26,6 +27,9 @@ page-home {
     .FabText{
         top:-44px;
         position: relative;
+    }
+    ion-fab[col-6]{
+        align-items: center;
     }
 
 }

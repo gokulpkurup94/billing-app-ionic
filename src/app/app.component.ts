@@ -9,6 +9,7 @@ import { BillPage } from '../pages/bill/bill';
 import { SettingsPage } from '../pages/settings/settings';
 import { ProductApiService } from '../shared/productApi.service';
 import { ProductsPage } from '../pages/products/products';
+import { FetchBillPage } from '../pages/fetch-bill/fetch-bill';
 
 @Component({
   templateUrl: 'app.html',
@@ -31,6 +32,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Bill', component: BillPage },
+      { title: 'Fetch Bill', component: FetchBillPage },
       { title: 'Products', component: ProductsPage },
       { title: 'Settings', component: SettingsPage }
     ];

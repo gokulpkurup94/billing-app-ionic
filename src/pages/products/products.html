@@ -5,8 +5,12 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
+ 
   <ion-navbar>
+      
+          <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
     <ion-title>Products</ion-title>
   </ion-navbar>
 
@@ -34,13 +38,13 @@
       
           <ion-row no-padding>
             <ion-col text-center col-6>
-              <button ion-button clear small color="danger" icon-start (click)="editProduct(product)">
+              <button ion-button clear small color="primary" icon-start (click)="editProduct(product)">
                 <ion-icon name='create'></ion-icon>
                 Edit
               </button>
             </ion-col>
             <ion-col text-center col-6>
-              <button ion-button clear small color="danger" icon-start>
+              <button ion-button clear small color="danger" icon-start (click)="deleteAProduct(product)">
                 <ion-icon name='trash'></ion-icon>
                 Delete
               </button>
@@ -54,5 +58,11 @@
 </ion-content>
 
 <ion-footer>
-    <button ion-button full color="primary">Add Product</button>
+
+      <div class="item-no">
+        Number of Products: {{productLength}}
+      </div>
+    <button ion-button full color="primary" (click)="addAProduct()">Add Product</button>
+
+    
 </ion-footer>

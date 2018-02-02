@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { ItemBill, CustomerBill, Product } from '../../shared/item-bill.modal';
+import { ItemBill, CustomerBill, Product, Bill } from '../../shared/item-bill.modal';
 import { GstService } from '../../shared/gstService';
 import { ProductApiService } from '../../shared/productApi.service';
+import { BillViewPage } from '../bill-view/bill-view';
 /**
  * Generated class for the BillDetailPage page.
  *
@@ -39,11 +40,16 @@ export class BillDetailPage{
                         this.gst=this.gstService.getGst();
                         this.grandTotal=0;
                         this.user=this.navParams.data;
+                        this.productApiService.getProducts().subscribe(data => {
+                          this.currentProducts = data;
+                          // this.productLength=this.currentProducts.length;
+                          // console.log("ProductLength:"+this.productLength);
+                        });
                         // this.productApiService.getProducts().subscribe(data => {
 
                         //   this.currentProducts=data;
                         // });
-                        // console.log(this.currentProducts);
+                        console.log("constructor bill");
 
   }
   changed(i:number){
@@ -99,6 +105,32 @@ export class BillDetailPage{
     }
 
   }
+  saveBill(){
+    let alert = this.alertCtrl.create({
+      title: 'Confirm Save',
+      message: 'Do you want to save?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: () => {
+            let currentBill:Bill={ user:this.user, items: this.currentItems, total: this.grandTotal, gst: this.gstValue};
+            this.productApiService.saveBill(currentBill);
+            this.navCtrl.push(BillViewPage,currentBill);
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  
 
     reset() {
       let alert = this.alertCtrl.create({
@@ -123,6 +155,22 @@ export class BillDetailPage{
         ]
       });
       alert.present();
+    }
+    onSelected(productName:string,serialNo:number){
+      let selectedProduct:Product=null;
+      console.log("selected"+productName);
+      for(let product of this.currentProducts){
+        //console.log("loop"+product.productName);
+        if(product.productName==productName){
+          selectedProduct=product;
+        }
+      }
+      if(selectedProduct!=null){
+        //console.log("loop"+serialNo);
+        this.currentItems[serialNo-1].itemNo=selectedProduct.productId;
+        this.currentItems[serialNo-1].rate=selectedProduct.price;
+      }
+
     }
 
 

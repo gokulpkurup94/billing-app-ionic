@@ -1,0 +1,38 @@
+<ion-content>
+    <ion-navbar>
+        <ion-title>Product Details</ion-title>
+    </ion-navbar>
+
+
+    <ion-row>
+            <ion-col >
+                <ion-item>
+                    <ion-label floating>Product Name</ion-label>
+                    <ion-input type="text" [(ngModel)]=tempProduct.productName></ion-input>
+                  </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+                <ion-col >
+                    <ion-item>
+                        <ion-label floating>Product Id</ion-label>
+                        <ion-input type="text" [(ngModel)]=tempProduct.productId></ion-input>
+                      </ion-item>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                    <ion-col >
+                        <ion-item>
+                            <ion-label floating>Price</ion-label>
+                            <ion-input type="text" [(ngModel)]=tempProduct.price></ion-input>
+                          </ion-item>
+                    </ion-col>
+                  </ion-row>
+                  <ion-footer>
+                      <ion-row>
+                        <button ion-button full color="danger" col-6 (click)="cancel()">Cancel</button>
+                        <button ion-button full color="primary" col-6 (click)="update()">Update</button>
+                    </ion-row>
+                  </ion-footer>
+</ion-content>
+    

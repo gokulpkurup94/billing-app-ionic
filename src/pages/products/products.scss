@@ -1,3 +1,26 @@
 page-products {
+    .item-no{
+            padding: 2%;
+             font-weight: bold;
+        }
+}
+page-products-modal{
+    background-color: rgba(0, 0, 0, 0.5);
+    ion-content{
+        padding: 5%;
+        width: 80%;
+        left: 10%;
+        height: 70%;
+        top: 13%;
+        border-radius: 5%;
 
+
+    }
+    ion-footer{
+        padding: 5%;
+    }
+    .scroll-content{
+        padding: 5%;
+    }
+    
 }

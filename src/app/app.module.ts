@@ -14,7 +14,9 @@ import { FormsModule } from '@angular/forms';
 import { GstService } from '../shared/gstService';
 import { SettingsPage } from '../pages/settings/settings';
 import { ProductApiService } from '../shared/productApi.service';
-import { ProductsPage } from '../pages/products/products';
+import { ProductsPage, ModalPage} from '../pages/products/products';
+import { BillViewPage } from '../pages/bill-view/bill-view';
+import { FetchBillPage } from '../pages/fetch-bill/fetch-bill';
 
 
 @NgModule({
@@ -24,7 +26,10 @@ import { ProductsPage } from '../pages/products/products';
     BillPage,
     BillDetailPage,
     SettingsPage,
-    ProductsPage
+    ProductsPage,
+    ModalPage,
+    BillViewPage,
+    FetchBillPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,10 @@ import { ProductsPage } from '../pages/products/products';
     BillPage,
     BillDetailPage,
     SettingsPage,
-    ProductsPage
+    ProductsPage,
+    ModalPage,
+    BillViewPage,
+    FetchBillPage
   ],
   providers: [
     StatusBar,

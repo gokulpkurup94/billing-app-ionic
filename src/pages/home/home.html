@@ -11,19 +11,63 @@
 </ion-header>
 
 <ion-content padding>
-<ion-fab  center middle>
- <button ion-fab (click)="openPage(pages[1])">
-   <ion-icon name="list-box"></ion-icon>
-   
- </button>
+  
+ <ion-row>
+<ion-fab  left middle col-6 class="fabtextallign">
+    <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+            <button ion-fab (click)="openPage(pages[1])">
+                <ion-icon name="list-box"></ion-icon>
+                
+              </button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
  <span class="FabText">Generate Bill</span>
  <br>
- <button ion-fab (click)="openPage(pages[2])">
-    <ion-icon name="settings"></ion-icon>
-    
-  </button>
-  <span class="FabText">Settings</span>
+ <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+        <button ion-fab (click)="openPage(pages[2])">
+            <ion-icon name="cloud-download"></ion-icon>
+            
+          </button>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+  <span class="FabText">Old Bills</span>
 </ion-fab>
+
+
+<ion-fab  right middle col-6 class="fabtextallign" >
+    
+    <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+            <button ion-fab (click)="openPage(pages[3])">
+                <ion-icon name="cart"></ion-icon>
+                
+              </button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    <span class="FabText">Products</span>
+    <br>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+          <button ion-fab (click)="openPage(pages[4])">
+              <ion-icon name="settings"></ion-icon>
+              
+            </button>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    
+     <span class="FabText">Settings</span>
+   </ion-fab>
+  </ion-row>  
 
  
 </ion-content>

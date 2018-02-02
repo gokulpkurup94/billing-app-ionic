@@ -18,5 +18,12 @@ export class Product{
     price:number;
     productId:number;
     productName:string;
+    slNo:number;
 
+}
+export class Bill{
+    user:CustomerBill;
+    items:ItemBill[];
+    total:number;
+    gst:number;
 }

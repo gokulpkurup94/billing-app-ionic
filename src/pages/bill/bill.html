@@ -24,7 +24,7 @@
     
       <ion-item>
         <ion-label stacked>Bill Date</ion-label>
-        <ion-input type="date" [(ngModel)]="customerBill.billDate"></ion-input>
+        <ion-datetime  [(ngModel)]="customerBill.billDate"></ion-datetime> 
       </ion-item>   
       <br>
       <ion-title>Customer Details</ion-title>
@@ -45,9 +45,9 @@
 
         
     </ion-list>
-    <ul>
+    <!-- <ul>
       <li *ngFor="let c of currentProducts">{{c.productName}}</li>
-    </ul>
+    </ul> -->
     <ion-fab right bottom>
       <button ion-fab color="primary" (click)="billUser()"><ion-icon name="arrow-forward"></ion-icon></button>
      

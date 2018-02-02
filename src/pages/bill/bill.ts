@@ -24,7 +24,7 @@ export class BillPage {
    private gst:number;
   customerBill: CustomerBill;
   constructor(public navCtrl: NavController, public navParams: NavParams, public productApiService: ProductApiService) {
-    this.customerBill= {billNo: 0, billDate: null, customeName: null, customerAddress:null , mobileNo:null };
+    this.customerBill= {billNo: null, billDate: null, customeName: null, customerAddress:null , mobileNo:null };
     
   }
 

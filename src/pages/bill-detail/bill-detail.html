@@ -7,13 +7,25 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Bill Details</ion-title>
+    <ion-row>
+    <ion-title col-9 >Bill Details</ion-title>
+    <ion-icon col-3 name='cart'><ion-badge >{{count}}</ion-badge></ion-icon>
+  </ion-row>
+    
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+    <!-- <input type="text" list="products" name="browser"> -->
+    <datalist id="products">
+      <option *ngFor="let product of currentProducts" [value]=product.productName>
+      
+    </datalist>
+  <!-- <ul>
+    <li *ngFor="let product of currentProducts">{{product.productName}}</li>
+  </ul> -->
 
 <ion-card>
     <!-- <ion-card-header>
@@ -64,7 +76,11 @@
                   <ion-col col-12>
                       <ion-item>
                           <ion-label floating>Item Name</ion-label>
-                          <ion-input type="text" [(ngModel)]="item.itemName"></ion-input>
+                          <ion-input type="text" [(ngModel)]="item.itemName" list="products" (focusout)="onSelected(item.itemName,item.serialNo)"></ion-input>
+                          <datalist id="products">
+                            <option *ngFor="let product of currentProducts" [value]="product.productName">
+                            
+                          </datalist>
                         </ion-item>
                   </ion-col>
                 </ion-row>
@@ -110,7 +126,9 @@
       
         
      
-       
+  <ion-fab right bottom>
+    <button ion-fab color="secondary" (click)="saveBill()"><ion-icon name="checkmark"></ion-icon></button>
+  </ion-fab>      
       
  <ion-card>
       <!-- <ion-card-content> -->
